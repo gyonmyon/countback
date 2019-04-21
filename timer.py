@@ -1,7 +1,6 @@
 import time
 
 # determine the Meeting date
-
 print("Input meeting date in formate DD.MM.YYYY HH:MM")
 time_string = input()
 
@@ -29,17 +28,22 @@ hour = 60 * minute
 day = 24 * hour
 #
 print("\n")
+
 days = countback // day
-print("Whole days to the meeting:", days)
+if days != 0:
+    print("Whole days to the meeting:", days)
 
 hours = countback // hour
-print("Whole hours to the meeting:", hours)
+if hours != 0:
+    print("Whole hours to the meeting:", hours)
 
 minutes = countback // minute
-print("Whole minutes to the meeting:", minutes)
+if minutes != 0:
+    print("Whole minutes to the meeting:", minutes)
 
 seconds = countback // second
-print("Whole seconds to the meeting:", seconds)
+if seconds !=0:
+    print("Whole seconds to the meeting:", seconds)
 
 # Time to meeting
 hrsTo = (countback % day) // hour
