@@ -1,10 +1,15 @@
 import time
 
 # determine the Meeting date
-print("Input meeting date in formate DD.MM.YYYY HH:MM")
+print("Input meeting date in formate DD.MM.YYYY")
 time_string = input()
+print("Input meeting time in formate HH:MM or just press Enter to set time 12:00")
+date_string = input()
+if date_string == "":
+    date_string = "12:00"
+datetime = time_string + " " + date_string
 
-t = time.strptime(time_string, "%d.%m.%Y %H:%M")
+t = time.strptime(datetime, "%d.%m.%Y %H:%M")
 result = time.mktime(t)
 
 print("Meeting date:", time_string)
@@ -22,8 +27,7 @@ seconds_remain = int(result)
 countback = abs(localNum - seconds_remain)
 
 # Captain Obvious
-second = 1
-minute = 60 * second
+second, minute = 1, 60
 hour = 60 * minute
 day = 24 * hour
 #
