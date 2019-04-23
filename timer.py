@@ -2,7 +2,11 @@ import time
 
 print("Input 'start' to start a programm")
 start = input()
+#while 
 while start == "start":
+    #file_check = open("lastDate.txt", 'r')
+    #if file_check 
+
         # determine the Meeting date
     print("Input meeting date in formate DD.MM.YYYY")
     time_string = input()
@@ -39,7 +43,7 @@ while start == "start":
     days = countback // day
     if days != 0:
         print("Whole days to the meeting:", days)
-
+    
     hours = countback // hour
     if days != 0 and hours != 0:
         print("Whole hours to the meeting:", hours)
@@ -58,8 +62,20 @@ while start == "start":
     secTo = (countback % minute)
     print("It remains quite a bit:", days, "days,", hrsTo,
       "hours,", minTo, "minutes,", secTo, "seconds.")
-    end = input("Press 'q' to quit or just press Enter to continue")
+      
+    # Save last date
+    print("Do you want to save last meeting date?")
+    print("Press 'save' to save or just press Enter to continue:")
+    save_file = input()
+    if save_file == "save":
+        myFile = open("lastDate.txt", 'w')
+        myFile.write(datetime)
+        myFile.close()
+    #end
+    end = input("Press 'q' to quit or just press Enter to continue: ")
     if end =="q":
+        break
+    else:
         break
 #elif start == "exit":
 #
