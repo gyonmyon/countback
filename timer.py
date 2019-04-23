@@ -17,20 +17,16 @@ while start == "start":
     datetime = time_string + " " + date_string
 
     t = time.strptime(datetime, "%d.%m.%Y %H:%M")
-    result = time.mktime(t)
-
     print("Meeting date:", time_string)
 
     # determine the local date
-    named_tuple = time.localtime()
-    nowPrint = time.strftime("%d %B, %Y %H:%M", named_tuple)
-
+    nowPrint = time.strftime("%d %B, %Y %H:%M", time.localtime())
     print("Your local time:", nowPrint)
 
     # Count
     localNum = int(round(time.time()))
 
-    seconds_remain = int(result)
+    seconds_remain = int(time.mktime(t))
     countback = abs(localNum - seconds_remain)
 
     # Captain Obvious
@@ -62,7 +58,7 @@ while start == "start":
     secTo = (countback % minute)
     print("It remains quite a bit:", days, "days,", hrsTo,
       "hours,", minTo, "minutes,", secTo, "seconds.")
-      
+
     # Save last date
     print("Do you want to save last meeting date?")
     print("Press 'save' to save or just press Enter to continue:")
